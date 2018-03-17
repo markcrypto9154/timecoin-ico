@@ -12,7 +12,7 @@ contract TIMECOIN is BurnableToken, UpgradeableToken {
   function TIMECOIN(address _owner)  UpgradeableToken(_owner) {
     name = "TIMECOIN";
     symbol = "TMC";
-    totalSupply = 2;
+    totalSupply = 2,000,000,000,000;
     decimals = 0;
 
     balances[_owner] = totalSupply;
