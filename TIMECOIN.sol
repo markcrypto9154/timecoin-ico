@@ -5,9 +5,10 @@ import "./lib/UpgradeableToken.sol";
 
 contract TIMECOIN is BurnableToken, UpgradeableToken {
 
-  string public name;
-  string public symbol;
-  uint public decimals;
+  string public name = "timecoin";
+  string public symbol = "TMC";
+  uint public decimals = 0;
+  uint public INITIAL_SUPPLY = 10000 * (10 ** decimals);
 
   function TIMECOIN(address _owner)  UpgradeableToken(_owner) {
     name = "TIMECOIN";
@@ -15,6 +16,9 @@ contract TIMECOIN is BurnableToken, UpgradeableToken {
     totalSupply = 2;
     decimals = 0;
 
+  function TIMECOIN() public {
+    totalSupply = INITIAL_SUPPLY;
+    balances[msg.sender] = INITIAL_SUPPLY;
     balances[_owner] = totalSupply;
   }
 }
